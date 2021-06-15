@@ -11,7 +11,7 @@ model = joblib.load(r'Sentiment')
 
 @app.route('/')
 def hello_world():
-    return render_template("index.html")
+    return 'hello spidey'
 
 @app.route('/predict' , methods=['POST'])
 def prediction():
