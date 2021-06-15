@@ -19,4 +19,6 @@ def prediction():
     data = data['values']
     prediction = model.predict(data)
     return str(prediction[0])
-app.run(port=5001, debug=True)
+
+if __name__ == '__main__':
+    app.run(debug=True)
