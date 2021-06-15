@@ -16,7 +16,14 @@ def prediction():
     data = request.get_json()
     data = data['values']
     prediction = model.predict(data)
-    return str(prediction[0])
+    output = str(prediction[0])
+    
+    if output == 0:
+        return render_template('forest_fire.html',pred='Negative Sentiment')
+    elif ouput ==1:
+        return render_template('forest_fire.html',pred='Positive Sentiment')
+    else:
+        return render_template('forest_fire.html',pred='Neutral Sentiment')
 
 if __name__ == '__main__':
     app.run(debug=True)
