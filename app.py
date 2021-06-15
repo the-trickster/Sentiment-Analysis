@@ -3,6 +3,7 @@ from flask import Flask,request, url_for, redirect, render_template
 import joblib
 import json
 import numpy as np
+from sklearn import *
 
 app = Flask(__name__)
 model = joblib.load(r'Sentiment')
@@ -14,7 +15,7 @@ def hello_world():
 @app.route('/predict' , methods=['POST'])
 def prediction():
     data = request.get_json()
-    values = data['values']
+    data = data['values']
     prediction = model.predict(data)
     return str(prediction[0])
 
