@@ -13,8 +13,8 @@ def hello_world():
 
 @app.route('/predict' , methods=['POST'])
 def prediction():
-    data = request.form.values()
-    data = [data]
+    data = request.values.get("first_name")
+    print(data)
     prediction = model.predict(data)
     output = str(prediction[0])
     
