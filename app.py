@@ -10,8 +10,8 @@ app = Flask(__name__)
 model = joblib.load(r'Sentiment')
 
 @app.route('/')
-def hello():
-    return 'hello world!'
+def hello_world():
+    return render_template("index.html")
 
 @app.route('/predict' , methods=['POST'])
 def prediction():
