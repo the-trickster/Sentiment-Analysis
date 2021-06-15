@@ -1,10 +1,8 @@
 #scikit-learn==0.22.1
-from flask import Flask,request,jsonify
+from flask import Flask,request, url_for, redirect, render_template
 import joblib
 import json
 import numpy as np
-from sklearn import *
-
 
 app = Flask(__name__)
 model = joblib.load(r'Sentiment')
