@@ -16,11 +16,11 @@ def prediction():
     data = request.form.get("first_name")
     print(data)
     prediction = model.predict(data)
-    output = str(prediction[0])
+    output = prediction[0]
     
     if output == 0:
         return render_template('index.html',pred='Negative Sentiment')
-    elif ouput ==1:
+    elif ouput == 1:
         return render_template('index.html',pred='Positive Sentiment')
     else:
         return render_template('index.html',pred='Neutral Sentiment')
