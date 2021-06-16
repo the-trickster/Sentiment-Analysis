@@ -14,10 +14,15 @@ def hello_world():
 
 @app.route('/predict' , methods=['POST'])
 def prediction():
-    data = request.get_json()
-    data = data['values']
-    prediction = model.predict(data)
-    return str(prediction[0])
+    data = request.form['first_name']
+    prediction = model.predict([data])
+
+    if prediction == 0:
+        return render_template('index.html',pred='Negative Sentiment')
+    elif prediction == 0:
+        return render_template('index.html',pred='Positive Sentiment')
+    else:
+        return render_template('index.html',pred='Neutral Sentiment')
 
 if __name__ == '__main__':
     app.run(debug=True)
