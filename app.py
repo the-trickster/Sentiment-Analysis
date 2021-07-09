@@ -19,7 +19,7 @@ def prediction():
 
     if prediction == 0:
         return render_template('index.html',pred='Negative Sentiment')
-    elif prediction == 0:
+    elif prediction == 1:
         return render_template('index.html',pred='Positive Sentiment')
     else:
         return render_template('index.html',pred='Neutral Sentiment')
